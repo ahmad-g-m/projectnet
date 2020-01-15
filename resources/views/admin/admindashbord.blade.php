@@ -3,12 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('#subbtn').click(function(){
+                $("#show").html("<font color = blue> waite for...</font>");
+                var i1 = $("#txt1").val();
+                var okk = "ok";
+                $.get("http://127.0.0.1:8000/dashbordadmin",{p1:i1 , ok1:okk} , function(data){
+                    $("#show").html(data);
+                });
+                return false;
+            });
+        });
+    </script> -->
+    <!-- <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> -->
     
     <title>dashbord</title>
 </head>
 <body>
     <div>
-        this is dashbord <br>
+        this is admin dashbord <br>
+        <?php 
+        $rr = Request();
+            if(isset($rr->input()->ok1)){
+               echo($rr->input()->p1);
+            }
+        ?>
+      
+        <!-- <form action="http://127.0.0.1:8000/dashbordadmin" method="GET" name="form1" id="form1"> -->
+            <!-- <div style="color:red" id="show" name="show"></div>
+            <input type="text" name="txt1" id="txt1">
+            <input type="submit" name="subbtn" id="subbtn" value="send"> -->
+        <!-- </form> -->
+        <br>
        <form action="{{ route('loginadmin') }}" method="get">   <!-- leave button -->
             <input type="submit" name="leavebtn" value="leave">
         </form>
@@ -21,7 +49,7 @@
         </form>
         <hr>
     </div><!-- Div show user-->
-
+   
         <?php 
         //show user
         use Illuminate\Support\Facades\Storage;
@@ -74,14 +102,35 @@ if(isset($showuser)){
     </table>
     </div><!--Div action for show user -->
     <hr>
-    
+            
     <div><!--Div new post -->
         <form  method="post" action="{{ route('uploadAdmin') }}" enctype="multipart/form-data">
         {!!csrf_field()!!}
-            <label for="fileField">file name:</label>
-            <input type="file" name="upFileFromAdmin" id="fileField" >
-            <input type="text" name="ate" id="">
-            <input type="submit" name="newPostBtn" value="newPost">
+            <label for="fileField">choose image :</label>
+            <input type="file" name="upFileFromAdmin[]" id="fileField" multiple></br>
+            <label for="brand"> brand: </label>
+            <input type="text" name="brand" id="brand">
+            <label for="name"> name: </label>
+            <input type="text" name="name" id="name">
+            <label for="model"> model: </label>
+            <input type="text" name="model" id="model">
+            <label for="price"> price: </label>
+            <input type="text" name="price" id="price">
+            <label for="year"> year : </label>
+            <input type="text" name="year" id="year">
+            <label for="time0to100"> time 0 to 100 : </label>
+            <input type="text" name="time0to100" id="time0to100">
+            <label for="transmission"> transmission: </label>
+            <input type="text" name="transmission" id="transmission">
+            <label for="fueltype">fuel type: </label>
+            <input type="text" name="fueltype" id="fueltype">
+            <label for="enginepowers"> engine power :</label>
+            <input type="text" name="enginepowers" id="enginepowers">
+            <label for="numbercylinder"> cylinder numbers :</label>
+            <input type="text" name="numbercylinder" id="numbercylinder">
+            <label for="moredetail"> more detail: </label>
+            <textarea name="moredetail" id="moredetail" cols="60" rows="30"></textarea>
+            <input type="submit" name="newPostBtn" id="newPostBtn" value="newPost">
         </form>
     </div>
     <?php

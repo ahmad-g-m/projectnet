@@ -27,7 +27,7 @@ Route::get('registeradmin' , 'registeradminController@index');
 Route::post('saveregadmin' , 'registeradminController@saveReg');
 Route::get('loginadmin' , 'loginadminController@index')->name('loginadmin');//login
 Route::post('loginedadmin' , 'loginadminController@login');
-Route::get('dashbordadmin' , 'adminHomeController@index');
+Route::get('dashbordadmin' , 'adminHomeController@index')->name('dashbord');
 Route::post('dashbordadmin/upload' , 'adminHomeController@uploadFile')->name("uploadAdmin");
 Route::post('dashbordadmin/showusers' , 'adminHomeController@showUsers')->name('showUsers');
 Route::get('dashbordadmin/delete{id}' , 'adminHomeController@deleteuser');////////////////////////
