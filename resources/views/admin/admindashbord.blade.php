@@ -24,6 +24,9 @@
 
         <?php 
         //show user
+        use Illuminate\Support\Facades\Storage;
+// use Illuminate\Http\Request;
+// use Illuminate\Support\Facades\Request;
 
 use Illuminate\Http\Request;
 
@@ -73,15 +76,26 @@ if(isset($showuser)){
     <hr>
     
     <div><!--Div new post -->
-        <form  method="GET" action="{{route('dashbordAdmin')}}">
-        
-        <input type="submit" name="newPostBtn" value="newPost">
+        <form  method="post" action="{{ route('uploadAdmin') }}" enctype="multipart/form-data">
+        {!!csrf_field()!!}
+            <label for="fileField">file name:</label>
+            <input type="file" name="upFileFromAdmin" id="fileField" >
+            <input type="text" name="ate" id="">
+            <input type="submit" name="newPostBtn" value="newPost">
         </form>
     </div>
     <?php
-        $req = new Request();
-        if(isset($_GET['newPostBtn'])){
-            echo("ho ho ho");
+        
+        // if(isset($_GET['newPostBtn'])){
+        //    $rr = Request();
+        //     // dd($rr->file('upFileFromAdmin')->store('photos'));
+        //     $path = Storage::putFile('photos', $rr->file('upFileFromAdmin'));
+        // }
+        if(isset($contents)){
+            // echo(Storage::disk('s3')->exists('photos/else/5FEl6nROVpape15BUu8hH5cnxMVFHyxn1QQ0TbKu.jpg'));
+            ?>
+    <img src="data:image/jpeg;base64,{{ base64_encode($contents)}}" style = "width : 150px ; height: 150px" alt="notingggg">
+            <?php
         }
         
     ?>
