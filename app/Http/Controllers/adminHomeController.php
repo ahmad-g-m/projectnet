@@ -26,19 +26,45 @@ class adminHomeController extends Controller
         return view('admin.admindashbord' , ['showuser' => 'show' , 'users' => $user , 'count' => $count]);
     }
     public function deleteuser($id){
-        echo ('show : ' . $id);
+        // dd ('show : ' . $id);
         // $finds = User::find($id);
         // if($finds){
         //     $finds->delete();
         // }
+        User::find($id)->delete();
         return redirect()->route('showUsers');
     }
-    public function newpost(){
-        
+    public function edituser(Request $r , $id){
+        // dd($id);
+    //  dd(User::find($id)->name);
+    $userBeforedit = User::find($id);
+    if(isset($r->editBtn)){
+        $user_edit = User::find($id);
+        $user_edit->name = $r->name;
+        $user_edit->age = $r->age;
+        $user_edit->email = $r->email;
+        $user_edit->password = $r->password;
+        $user_edit->save();
+        $user_after_edit = User::find($id);
+        return view('admin.adminEditUser',['success'=>'success' , 'id'=>$id , 'user' =>$user_after_edit]);
+    }
+    return view('admin.adminEditUser' , ['id'=>$id , 'user'=>$userBeforedit]);
+    }
+    public function editCheck(Request $r){
+        // if(isset($r->editBtn)){
+        //     $user_edit = User::
+        // }else{
+        //     return redirect('dashbordadmin')
+        // }
+    }
+    public function newpost(Request $r){
+        return view('admin.newPostAdmin');
     }
     public function uploadFile(Request $r){
-
-        $cars = new Cars();
+        if($r->file('upFileFromAdmin') == null){
+            dd('dont uploding file');
+        }else{
+            $cars = new Cars();
         if(isset($r->brand)){
             $cars->brand = $r->brand;
         }
@@ -85,9 +111,6 @@ class adminHomeController extends Controller
         // dd($contents["filename"]);
         // echo("<img src ='{{$contents}}'");
         // dd($contents);
-        if($r->file('upFileFromAdmin') == null){
-            dd('dont uploding file');
-        }else{
         $cars_2 = new Cars();
         $max_id = $cars_2->max('id');
         // $path = $r->file('upFileFromAdmin')->store('photos/else');
@@ -106,7 +129,19 @@ class adminHomeController extends Controller
             echo($path."<br>");
         }
 
-        }
-        return view('admin.admindashbord' , ['contents' => $contents]);
+        }//end if upFileFromAdmin
+        $test = Address::where('mark' , $max_id)->get();
+        // $content2 = Storage::get($test->address);
+        return view('admin.newPostAdmin' , ['contents' => $test , 'max_id'=> $max_id]);
+    }
+
+    public function editOrDeletepost(){
+            // dd('hi');
+        return redirect('dashbordadmin');
+        // if(!isset($r->editOrDeletePostBtn)){
+        //     return redirect()->action('loginAdminController@index');
+        // }else{
+        //     return view('admin.deleteOrEditPost');
+        // }
     }
 }

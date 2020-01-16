@@ -43,9 +43,7 @@
         <hr>
     </div>
     <div><!--show user-->
-        <form action="<?php echo e(route('showUsers')); ?>" method="POST">
-        <?php echo csrf_field(); ?>
-
+        <form action="<?php echo e(route('showUsers')); ?>" method="get">
             <button type="submit" name="showUsersBtn">show Users</button>
         </form>
         <hr>
@@ -89,8 +87,8 @@ if(isset($showuser)){
                     echo("<td style = 'border : 2px solid black;'>" . $u->password . "</td>");
                     echo("<td style = 'border : 2px solid black;'>" . $u->created_at . "</td>");
                     echo("<td style = 'border : 2px solid black;'>" . $u->updated_at . "</td>");
-                    echo("<td style = 'border : 2px solid black;'>". "<a href=". url('dashbordadmin/delete' . $u->id) .">delete</a>" ."</td>");
-                    echo("<td style = 'border : 2px solid black;'>". "<a href=". url('dashbordadmin/edit' . $u->id) .">edit</a>" ."</td>");
+                    echo("<td style = 'border : 2px solid black;'>". "<a href=". url('dashbordadmin/delete/' . $u->id) .">delete</a>" ."</td>");
+                    echo("<td style = 'border : 2px solid black;'>". "<a href=". url('dashbordadmin/edit/' . $u->id) .">edit</a>" ."</td>");
             echo("</tr>");
             $i++;
         ?>
@@ -105,34 +103,17 @@ if(isset($showuser)){
     <hr>
             
     <div><!--Div new post -->
-        <form  method="post" action="<?php echo e(route('uploadAdmin')); ?>" enctype="multipart/form-data">
+        <form  method="post" action="<?php echo e(route('newpost')); ?>">
         <?php echo csrf_field(); ?>
 
-            <label for="fileField">choose image :</label>
-            <input type="file" name="upFileFromAdmin[]" id="fileField" multiple></br>
-            <label for="brand"> brand: </label>
-            <input type="text" name="brand" id="brand">
-            <label for="name"> name: </label>
-            <input type="text" name="name" id="name">
-            <label for="model"> model: </label>
-            <input type="text" name="model" id="model">
-            <label for="price"> price: </label>
-            <input type="text" name="price" id="price">
-            <label for="year"> year : </label>
-            <input type="text" name="year" id="year">
-            <label for="time0to100"> time 0 to 100 : </label>
-            <input type="text" name="time0to100" id="time0to100">
-            <label for="transmission"> transmission: </label>
-            <input type="text" name="transmission" id="transmission">
-            <label for="fueltype">fuel type: </label>
-            <input type="text" name="fueltype" id="fueltype">
-            <label for="enginepowers"> engine power :</label>
-            <input type="text" name="enginepowers" id="enginepowers">
-            <label for="numbercylinder"> cylinder numbers :</label>
-            <input type="text" name="numbercylinder" id="numbercylinder">
-            <label for="moredetail"> more detail: </label>
-            <textarea name="moredetail" id="moredetail" cols="60" rows="30"></textarea>
             <input type="submit" name="newPostBtn" id="newPostBtn" value="newPost">
+        </form>
+    </div>
+    <hr>
+    <div><!--Div edit post -->
+        <form  method="get" action="<?php echo e(route('editdeletepost')); ?>">
+        
+            <input type="submit" name="editOrDeletePostBtn" id="editOrDeletePostBtn" value="edit-delete Post">
         </form>
     </div>
     <?php
@@ -142,12 +123,7 @@ if(isset($showuser)){
         //     // dd($rr->file('upFileFromAdmin')->store('photos'));
         //     $path = Storage::putFile('photos', $rr->file('upFileFromAdmin'));
         // }
-        if(isset($contents)){
-            // echo(Storage::disk('s3')->exists('photos/else/5FEl6nROVpape15BUu8hH5cnxMVFHyxn1QQ0TbKu.jpg'));
-            ?>
-    <img src="data:image/jpeg;base64,<?php echo e(base64_encode($contents)); ?>" style = "width : 150px ; height: 150px" alt="notingggg">
-            <?php
-        }
+
         
     ?>
 
