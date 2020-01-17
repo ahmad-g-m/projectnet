@@ -135,13 +135,70 @@ class adminHomeController extends Controller
         return view('admin.newPostAdmin' , ['contents' => $test , 'max_id'=> $max_id]);
     }
 
-    public function editOrDeletepost(){
+    public function editOrDeletepost(Request $r){
             // dd('hi');
-        return redirect('dashbordadmin');
+        if($r->editOrDeletePostCarsBtn == 'cars'){
+             $edit_cars = Cars::all();
+        }
+        if($r->editOrDeletePostTruckBtn == 'trucks'){
+            // $edit_cars = Cars::all();
+        }
+        if($r->editOrDeletePostMotorBtn == 'motorcycles'){
+            // $edit_cars = Cars::all();
+        }
+
+        return view('admin.editOrDeletePost' , ['cars'=>$edit_cars]);
         // if(!isset($r->editOrDeletePostBtn)){
         //     return redirect()->action('loginAdminController@index');
         // }else{
         //     return view('admin.deleteOrEditPost');
         // }
+    }
+    public function deletePost($id){
+        Cars::find($id)->delete();
+        return redirect()->route('editdeletepost',['editOrDeletePostCarsBtn'=>'cars']);
+    }
+    public function editPost(Request $r , $id){
+        $edit_car_before = Cars::find($id);
+        if(isset($r->editPostBtn)){
+            $edit_post = Cars::find($id);
+            if(isset($r->brand)){
+            $edit_post->brand = $r->brand;
+            }
+            if(isset($r->name)){
+            $edit_post->name = $r->name;
+            }
+            if(isset($r->model)){
+            $edit_post->model = $r->model;
+            }
+            if(isset($r->price)){
+            $edit_post->price = $r->price;
+            }
+            if(isset($r->year)){
+            $edit_post->year = $r->year;
+            }
+            if(isset($r->time0to100)){
+            $edit_post->time0to100 = $r->time0to100;
+            }
+            if(isset($r->transmission)){
+            $edit_post->transmission = $r->transmission;
+            }
+            if(isset($r->fueltype)){
+            $edit_post->fueltype = $r->fueltype;
+            }
+            if(isset($r->enginepowers)){
+            $edit_post->enginepowers = $r->enginepowers;
+            }
+            if(isset($r->numbercylinder)){
+            $edit_post->numbercylinder = $r->numbercylinder;
+            }
+            if(isset($r->moredetail)){
+            $edit_post->moredetail = $r->moredetail;
+            }
+            $edit_post->save();
+            $edited_post = Cars::find($id);
+            return view('admin.editPostAdmin' , ['success'=>'success','cars'=>$edited_post , 'id'=>$id]);
+        }
+        return view('admin.editPostAdmin' , ['cars'=>$edit_car_before , 'id'=>$id]);
     }
 }

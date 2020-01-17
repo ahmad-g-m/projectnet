@@ -34,7 +34,9 @@ Route::get('dashbordadmin/delete/{id}' , 'adminHomeController@deleteuser')->name
 Route::match(['GET','POST'],'dashbordadmin/edit/{id}' , 'adminHomeController@edituser')->name('edituser');/////////////////////////
 Route::match(['GET','POST'],'dashbordadmin/edit/updating' , 'adminHomeController@editCheck')->name('editUpdating');
 Route::post('dashbordadmin/newpost' , 'adminHomeController@newpost')->name('newpost');
-Route::get('dashbordadmin/editordeletepost' , 'adminHomeController@editOrDeletepost')->name('editdeletepost');
+Route::match(['GET','POST'],'dashbordadmin/editordeletepost' , 'adminHomeController@editOrDeletepost')->name('editdeletepost');
+Route::match(['GET','POST'] , 'dashbordadmin/editordeletepost/delete/{id}' , 'adminHomeController@deletePost')->name('deletePost');
+Route::match(['GET','POST'] , 'dashbordadmin/editordeletepost/editPost/{id}' , 'adminHomeController@editPost')->name('editPost');
 //users
 Route::get('registeruser' , 'registeruserController@index');
 Route::post('savereguser' , 'registeruserController@saveReg');

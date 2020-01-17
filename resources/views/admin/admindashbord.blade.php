@@ -110,9 +110,11 @@ if(isset($showuser)){
     </div>
     <hr>
     <div><!--Div edit post -->
+    <h3> edit or delete </h3>
         <form  method="get" action="{{ route('editdeletepost') }}">
-        
-            <input type="submit" name="editOrDeletePostBtn" id="editOrDeletePostBtn" value="edit-delete Post">
+            <input type="submit" name="editOrDeletePostCarsBtn" id="editOrDeletePostBtn" value="cars">
+            <input type="submit" name="editOrDeletePostTruckBtn" id="editOrDeletePostBtn" value="trucks">
+            <input type="submit" name="editOrDeletePostMotorBtn" id="editOrDeletePostBtn" value="motorcycles">
         </form>
     </div>
     <?php
