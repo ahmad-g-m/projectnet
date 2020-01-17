@@ -53,3 +53,5 @@ Route::match(['GET','POST'],'machines/classicscar/carpage/{id}' , 'carsHomeContr
 Route::match(['GET','POST'],'machines/sportscars' , 'carsHomeController@indexSportsCars');//sport car
 Route::match(['GET','POST'],'machines/sportscars/carpage/{id}' , 'carsHomeController@showPageCars');
 
+//search
+Route::get('search' , 'searchController@index');

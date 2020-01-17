@@ -158,8 +158,11 @@ class adminHomeController extends Controller
         // }
     }
     public function deletePost($id){
-        Cars::find($id)->delete();
-        /////////////////////////////////////////////****** naghes *******/////hazfe address///////////////////////
+        Cars::find($id)->delete();//delete car
+        $address = Address::where('mark',$id)->get();
+        foreach($address as $addr){//delete address
+            $addr->delete();
+        }
         return redirect()->route('editdeletepost',['editOrDeletePostCarsBtn'=>'cars']);
     }
     public function editPost(Request $r , $id){
