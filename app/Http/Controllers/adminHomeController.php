@@ -95,6 +95,9 @@ class adminHomeController extends Controller
         if(isset($r->numbercylinder)){
             $cars->numbercylinder = $r->numbercylinder;
         }
+        if(isset($r->mark)){
+            $cars->mark = $r->mark;
+        }
         if(isset($r->moredetail)){
             $cars->moredetail = $r->moredetail;
         }
@@ -156,6 +159,7 @@ class adminHomeController extends Controller
     }
     public function deletePost($id){
         Cars::find($id)->delete();
+        /////////////////////////////////////////////****** naghes *******/////hazfe address///////////////////////
         return redirect()->route('editdeletepost',['editOrDeletePostCarsBtn'=>'cars']);
     }
     public function editPost(Request $r , $id){

@@ -16,7 +16,7 @@ class carsHomeController extends Controller
         // }
         return view('cars.showclassCars' , ['moclass' => 9 , 'all_cars' => $all_cars]);
     }
-    public function indexc()
+    public function indexSedanCars()
     {
         $all_cars = Cars::all();
         // foreach($all_cars as $car){
@@ -25,7 +25,15 @@ class carsHomeController extends Controller
         // }
         return view('cars.showclassCars' , ['moclass' => 1 , 'all_cars' => $all_cars]);
     }
-    public function indexh()
+    public function showPageCars(Request $r , $id){
+        if(Cars::find($id)){
+        $show_car = Cars::find($id);
+        return view('cars.showPageCar',['id'=>$id , 'showcar'=>$show_car]);
+        }else{
+            dd('not found !!!!!!!!!!!');
+        }
+    }
+    public function indexClassicsCars()
     {
         $all_cars = Cars::all();
         // foreach($all_cars as $car){
@@ -34,8 +42,9 @@ class carsHomeController extends Controller
         // }
         return view('cars.showclassCars' , ['moclass' => 2 , 'all_cars' => $all_cars]);
     }
-    public function indexm()
+    public function indexSportsCars()
     {
+      
         $all_cars = Cars::all();
         // foreach($all_cars as $car){
         //     echo($car->name);

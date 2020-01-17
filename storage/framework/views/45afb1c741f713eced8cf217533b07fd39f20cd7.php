@@ -15,11 +15,14 @@
         if(Address::where('mark' , $id)->first()){
             $path = Address::where('mark' , $id)->first();
             $conte = Storage::get($path->address);
-        
-
+            $brand = $car->brand;
+            $name = $car->name;
+            $model = $car->model;
     ?>
     <div>
-        <img src="data:image/jpeg;base64,<?php echo e(base64_encode($conte)); ?>" style="width: 100px;height:100px;" alt="<?php echo e($car->name); ?>">
+        <img src="data:image/jpeg;base64,<?php echo e(base64_encode($conte)); ?>" style="width: 160px;height:100px;" alt="<?php echo e($car->name); ?>">
+        <br>
+        <h3><?php echo e($brand.' '.$name.' '.$model); ?></h3>
         <form action="<?php echo e(url('dashbordadmin/editordeletepost/editPost/'.$id)); ?>" method="get">
         <?php echo csrf_field(); ?>
 

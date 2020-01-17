@@ -45,7 +45,11 @@ Route::post('logineduser' , 'loginuserController@login');
 Route::get('dashborduser' , 'userHomeController@index');
 
 //cars
-Route::get('machines' , 'carsHomeController@index');
-Route::get('machines/cars' , 'carsHomeController@indexc');
-Route::get('machines/heavycars' , 'carsHomeController@indexh');
-Route::get('machines/motorcycle' , 'carsHomeController@indexm');
+Route::match(['GET','POST'],'machines' , 'carsHomeController@index');
+Route::match(['GET','POST'],'machines/sedanscars' , 'carsHomeController@indexSedanCars');//sedan car
+Route::match(['GET','POST'],'machines/sedanscars/carpage/{id}' , 'carsHomeController@showPageCars');
+Route::match(['GET','POST'],'machines/classicscars' , 'carsHomeController@indexClassicsCars');//classic car
+Route::match(['GET','POST'],'machines/classicscar/carpage/{id}' , 'carsHomeController@showPageCars');
+Route::match(['GET','POST'],'machines/sportscars' , 'carsHomeController@indexSportsCars');//sport car
+Route::match(['GET','POST'],'machines/sportscars/carpage/{id}' , 'carsHomeController@showPageCars');
+

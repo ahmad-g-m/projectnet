@@ -23,6 +23,8 @@
             <input type="text" name="enginepowers" id="enginepowers">
             <label for="numbercylinder"> cylinder numbers :</label>
             <input type="text" name="numbercylinder" id="numbercylinder">
+            <label for="mark"> mark :</label>
+            <input type="text" name="mark" id="mark">
             <label for="moredetail"> more detail: </label>
             <textarea name="moredetail" id="moredetail" cols="60" rows="15"></textarea>
             <input type="submit" name="newPostBtn" id="newPostBtn" value="newPost">
