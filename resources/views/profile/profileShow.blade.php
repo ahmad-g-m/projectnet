@@ -62,35 +62,17 @@
 					
 					<!-- Nav tabs -->
 					<ul class="nav nav-tabs" role="tablist" id="tableBackground">
-						<li class="nav-item col-3">
-							<a class="nav-link active" data-toggle="tab" href="#e-username">Username</a>
+						<li class="nav-item col-6">
+							<a class="nav-link active" data-toggle="tab" href="#e-password">Password</a>
 						</li>
-						<li class="nav-item col-3">
-							<a class="nav-link" data-toggle="tab" href="#e-password">Password</a>
-						</li>
-						<li class="nav-item col-3">
-							<a class="nav-link" data-toggle="tab" href="#e-email">Email</a>
-						</li>
-						<li class="nav-item col-3">
-							<a class="nav-link" data-toggle="tab" href="#e-age">Age</a>
+						<li class="nav-item col-6">
+							<a class="nav-link" data-toggle="tab" href="#e-information">Information</a>
 						</li>
 					</ul>
 
 					<!-- Tab panes -->
 					<div class="tab-content">
-						<div id="e-username" class="container tab-pane active"><br><br><br>
-							<form>
-								<div class="mx-auto col-lg-5 col-md-7 col-sm-10 col-xs-12">
-									<div class="mb-2">
-										<input type="username" class="form-control" placeholder="Enter a Username...">
-									</div>
-									<div class="col-12 mb-2">
-										<button type="button" name="button" class="btn btn-primary btn-block">Change username</button>
-									</div>
-								</div>		
-							</form>
-						</div>
-						<div id="e-password" class="container tab-pane fade"><br><br><br>
+						<div id="e-password" class="container tab-pane active"><br><br><br>
 							<form>
 								<div class="mx-auto col-lg-5 col-md-7 col-sm-10 col-xs-12">
 									<div class="mb-2">
@@ -108,33 +90,32 @@
 								</div>		
 							</form>
 						</div>
-						<div id="e-email" class="container tab-pane fade"><br><br><br>
+						<div id="e-information" class="container tab-pane fade"><br><br><br>
 							<form>
 								<div class="mx-auto col-lg-5 col-md-7 col-sm-10 col-xs-12">
 									<div class="mb-2">
-										<input type="email" class="form-control" placeholder="Enter your email...">
+										<input type="username" class="form-control" placeholder="Change username...">
+									</div>
+									<div class="mb-2">
+										<input type="email" class="form-control" placeholder="Change email...">
+									</div>
+									<div class="mb-2">
+										<input type="input" class="form-control" placeholder="Change age...">
 									</div>
 									<div class="col-12 mb-2">
-										<button type="button" name="button" class="btn btn-primary btn-block">Change email</button>
+										<button type="button" name="button" class="btn btn-primary btn-block">Change</button>
 									</div>
 								</div>		
 							</form>
-						</div>
-						<div id="e-age" class="container tab-pane fade"><br><br><br>
-							<div class="mx-auto col-lg-3 col-md-4 col-sm-5 col-xs-6">
-								<div class="mb-2">
-									<input type="number" class="form-control" placeholder="Enter your age...">
-								</div>
-								<div class="col-12 mb-2">
-									<button type="button" name="button" class="btn btn-primary btn-block">Change age</button>
-								</div>
-							</div>
 						</div>
 					</div>
 				</div> 
 				<div id="intCar" class="container tab-pane fade" id="cover"><br>
 					<div class="container">
 						<div class="row">
+
+							<!-- in ja bayad ye method php bashe ke be ezaye har post ye bar ino echo kone -->
+
 							<div class="col-lg-3 col-md-4 col-sm-5 col-xs-6">
 								<a  class="btn" href="#" >
 									<div class="card mb-1">
@@ -145,66 +126,11 @@
 									</div>
 								</a>
 							</div>
-							<div class="col-lg-3 col-md-4 col-sm-5 col-xs-6">
-								<a  class="btn" href="#" >
-									<div class="card mb-1">
-										<img class="card-img-top" src="photo_2020-01-16_20-11-18.jpg" alt="Card image" style="width:100%">
-										<div class="card-body-down">
-											<h6 class="text-dark text-center">salam</h6>
-										</div>
-									</div>
-								</a>
-							</div>
-							<div class="col-lg-3 col-md-4 col-sm-5 col-xs-6">
-								<a  class="btn" href="#" >
-									<div class="card mb-1">
-										<img class="card-img-top" src="photo_2020-01-16_20-11-18.jpg" alt="Card image" style="width:100%">
-										<div class="card-body-down">
-											<h6 class="text-dark text-center">salam</h6>
-										</div>
-									</div>
-								</a>
-							</div>
-							<div class="col-lg-3 col-md-4 col-sm-5 col-xs-6">
-								<a  class="btn" href="#" >
-									<div class="card mb-1">
-										<img class="card-img-top" src="photo_2020-01-16_20-11-18.jpg" alt="Card image" style="width:100%">
-										<div class="card-body-down">
-											<h6 class="text-dark text-center">salam</h6>
-										</div>
-									</div>
-								</a>
-							</div>
-							<div class="col-lg-3 col-md-4 col-sm-5 col-xs-6">
-								<a  class="btn" href="#" >
-									<div class="card mb-1">
-										<img class="card-img-top" src="photo_2020-01-16_20-11-18.jpg" alt="Card image" style="width:100%">
-										<div class="card-body-down">
-											<h6 class="text-dark text-center">salam</h6>
-										</div>
-									</div>
-								</a>
-							</div>
-							<div class="col-lg-3 col-md-4 col-sm-5 col-xs-6">
-								<a  class="btn" href="#" >
-									<div class="card mb-1">
-										<img class="card-img-top" src="photo_2020-01-16_20-11-18.jpg" alt="Card image" style="width:100%">
-										<div class="card-body-down">
-											<h6 class="text-dark text-center">salam</h6>
-										</div>
-									</div>
-								</a>
-							</div>
-							<div class="col-lg-3 col-md-4 col-sm-5 col-xs-6">
-								<a  class="btn" href="#" >
-									<div class="card mb-1">
-										<img class="card-img-top" src="photo_2020-01-16_20-11-18.jpg" alt="Card image" style="width:100%">
-										<div class="card-body-down">
-											<h6 class="text-dark text-center">salam</h6>
-										</div>
-									</div>
-								</a>
-							</div>
+							<!---------------------------------------------------------------->
+
+
+
+
 						</div>
 					</div>
 							  
