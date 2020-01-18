@@ -13,7 +13,7 @@ class loginadminController extends Controller
         // session_start();
         if(isset($r->leavebtn)){
             echo("you are logout!!!");
-            session()->forget('logadmin');
+            $r->session()->forget('logadmin');
         }
         // if(isset()){
         //     unset();
@@ -28,7 +28,8 @@ class loginadminController extends Controller
         $pass = $r->password;
         $email = $r->email;
         if(Admins::where([['email' , $email],['password' , $pass]])->first()){
-            session()->put('logadmin','logined');
+            $admin = Admins::where([['email' , $email],['password' , $pass]])->first(); 
+            $r->session()->put('logadmin',$admin->name);
             return redirect('dashbordadmin');
         }else{
             return redirect()->action('loginadminController@index');

@@ -13,19 +13,27 @@ use Symfony\Component\Console\Input\Input;
 class adminHomeController extends Controller
 {
     public function index(Request $r){
-        if(session()->has('logadmin')){
+        if($r->session()->has('logadmin')){
         // echo(" you login sir admin");
         return view('admin.admindashbord');
         }else{
             return redirect('loginadmin');
         }
     }
-    public function showUsers(){
+    public function showUsers(Request $r){
+        if($r->session()->has('logadmin') == false){
+            // echo(" you login sir admin");
+            return redirect('loginadmin');
+        }
         $user = User::all();
         $count = User::count();
         return view('admin.admindashbord' , ['showuser' => 'show' , 'users' => $user , 'count' => $count]);
     }
-    public function deleteuser($id){
+    public function deleteuser(Request $r , $id){
+        if($r->session()->has('logadmin') == false){
+            // echo(" you login sir admin");
+            return redirect('loginadmin');
+        }
         // dd ('show : ' . $id);
         // $finds = User::find($id);
         // if($finds){
@@ -35,6 +43,10 @@ class adminHomeController extends Controller
         return redirect()->route('showUsers');
     }
     public function edituser(Request $r , $id){
+        if($r->session()->has('logadmin') == false){
+            // echo(" you login sir admin");
+            return redirect('loginadmin');
+        }
         // dd($id);
     //  dd(User::find($id)->name);
     $userBeforedit = User::find($id);
@@ -58,9 +70,17 @@ class adminHomeController extends Controller
         // }
     }
     public function newpost(Request $r){
+        if($r->session()->has('logadmin') == false){
+            // echo(" you login sir admin");
+            return redirect('loginadmin');
+        }
         return view('admin.newPostAdmin');
     }
     public function uploadFile(Request $r){
+        if($r->session()->has('logadmin') == false){
+            // echo(" you login sir admin");
+            return redirect('loginadmin');
+        }
         if($r->file('upFileFromAdmin') == null){
             dd('dont uploding file');
         }else{
@@ -139,6 +159,10 @@ class adminHomeController extends Controller
     }
 
     public function editOrDeletepost(Request $r){
+        if($r->session()->has('logadmin') == false){
+            // echo(" you login sir admin");
+            return redirect('loginadmin');
+        }
             // dd('hi');
         if($r->editOrDeletePostCarsBtn == 'cars'){
              $edit_cars = Cars::all();
@@ -157,7 +181,11 @@ class adminHomeController extends Controller
         //     return view('admin.deleteOrEditPost');
         // }
     }
-    public function deletePost($id){
+    public function deletePost(Request $r , $id){
+        if($r->session()->has('logadmin') == false){
+            // echo(" you login sir admin");
+            return redirect('loginadmin');
+        }
         Cars::find($id)->delete();//delete car
         $address = Address::where('mark',$id)->get();
         foreach($address as $addr){//delete address
@@ -166,6 +194,10 @@ class adminHomeController extends Controller
         return redirect()->route('editdeletepost',['editOrDeletePostCarsBtn'=>'cars']);
     }
     public function editPost(Request $r , $id){
+        if($r->session()->has('logadmin') == false){
+            // echo(" you login sir admin");
+            return redirect('loginadmin');
+        }
         $edit_car_before = Cars::find($id);
         if(isset($r->editPostBtn)){
             $edit_post = Cars::find($id);
