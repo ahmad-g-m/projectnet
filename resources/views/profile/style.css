@@ -1,10 +1,5 @@
 .masterHeader{
-  background:url('photo_2020-01-16_20-11-18.jpg') no-repeat center center;
-  padding-bottom: 18rem;
-  background-size: cover;
-}
-.masterHeader1{
-  background:url('photo_2020-01-17_05-51-23.jpg') no-repeat center center;
+  background:url('../image/photo_2020-01-16_20-11-18.jpg') no-repeat center center;
   padding-bottom: 18rem;
   background-size: cover;
 }

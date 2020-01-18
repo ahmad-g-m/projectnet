@@ -4,8 +4,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="profile.js">
-	<link rel="stylesheet" href="bootstrap.min.css">
+	<link rel="stylesheet" href="../bootstrap.min.css">
 	<title>Bootstrap 4 tutorial</title>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
