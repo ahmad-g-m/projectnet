@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" type="text/css">
     <link rel="stylesheet" href="profile.js">
 	<link rel="stylesheet" href="bootstrap.min.css">
 	<title>Bootstrap 4 tutorial</title>
@@ -17,6 +17,7 @@
 	  
 </head>
 <body>
+
 	<header class="masterHeader text-center text-white">
 		<div id="cover">
 			<!-- Nav tabs -->

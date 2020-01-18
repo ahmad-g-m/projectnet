@@ -28,6 +28,7 @@ Route::match(['GET','POST'],'saveregadmin' , 'registeradminController@saveReg');
 Route::match(['GET','POST'],'loginadmin' , 'loginadminController@index')->name('loginadmin');//login
 Route::match(['GET','POST'],'loginedadmin' , 'loginadminController@login');
 Route::match(['GET' , 'POST'],'dashbordadmin' , 'adminHomeController@index')->name('dashbordadmin');
+Route::match(['GET' , 'POST'],'dashbordadmin/profile/{id}' , 'adminHomeController@adminprofile')->name('adminprofile');
 Route::match(['GET','POST'],'dashbordadmin/newpost/uploading' , 'adminHomeController@uploadFile')->name("uploadAdmin");
 Route::match(['GET','POST'],'dashbordadmin/showusers' , 'adminHomeController@showUsers')->name('showUsers');
 Route::match(['GET','POST'],'dashbordadmin/delete/{id}' , 'adminHomeController@deleteuser')->name('deleteuser');////////////////////////

@@ -11,3 +11,13 @@ Homestead.yaml
 npm-debug.log
 yarn-error.log
 /storage/app/photos
+resources/views/bootstrap.min.css
+resources/views/bootstrap.min.js
+resources/views/image/001-twitter-logo.svg
+resources/views/image/002-instagram-logo.svg
+resources/views/image/003-telegram-logo.svg
+resources/views/image/455.svg
+resources/views/image/505.svg
+resources/views/image/999.svg
+resources/views/profile/style.css
+resources/views/image/photo_2020-01-16_20-11-18.jpg

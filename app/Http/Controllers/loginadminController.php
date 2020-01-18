@@ -30,6 +30,7 @@ class loginadminController extends Controller
         if(Admins::where([['email' , $email],['password' , $pass]])->first()){
             $admin = Admins::where([['email' , $email],['password' , $pass]])->first(); 
             $r->session()->put('logadmin',$admin->name);
+            $r->session()->put('id',$admin->id);
             return redirect('dashbordadmin');
         }else{
             return redirect()->action('loginadminController@index');

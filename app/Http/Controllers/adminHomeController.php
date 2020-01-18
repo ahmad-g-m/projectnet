@@ -15,10 +15,16 @@ class adminHomeController extends Controller
     public function index(Request $r){
         if($r->session()->has('logadmin')){
         // echo(" you login sir admin");
-        return view('admin.admindashbord');
+        $idadmin = $r->session()->get('id');
+        $user = User::find($idadmin);
+        return view('admin.admindashbord' , ['idadmin'=>$idadmin , 'user'=> $user]);
         }else{
             return redirect('loginadmin');
         }
+    }
+    public function adminprofile(Request $r , $id){
+        // dd($id);
+        return view('profile.profileShow' , ['id'=>$id]);
     }
     public function showUsers(Request $r){
         if($r->session()->has('logadmin') == false){

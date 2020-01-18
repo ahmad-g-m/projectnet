@@ -25,6 +25,7 @@
     <div>
         this is admin dashbord <br>
         <?php 
+        // dd($idadmin);
         $rr = Request();
             if(isset($rr->input()->ok1)){
                echo($rr->input()->p1);
@@ -36,6 +37,11 @@
             <input type="text" name="txt1" id="txt1">
             <input type="submit" name="subbtn" id="subbtn" value="send"> -->
         <!-- </form> -->
+        <br>
+       <form action="http://127.0.0.1:8000/dashbordadmin/profile/{{$idadmin}}" method="get">   <!-- leave button -->
+            <input type="submit" name="profileBtn" value="profile">
+        </form>
+        <hr>
         <br>
        <form action="{{ route('loginadmin') }}" method="get">   <!-- leave button -->
             <input type="submit" name="leavebtn" value="leave">
