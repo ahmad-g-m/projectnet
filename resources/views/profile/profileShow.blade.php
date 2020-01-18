@@ -18,7 +18,7 @@
 <body>
 	<header class="masterHeader text-center text-white">
 		<div id="cover">
-			<!-- Nav tabs -->
+			<!-- Nav tabs -------->
 			<ul class="nav nav-tabs" role="tablist" id="tableBackground">
 				<li class="nav-item col-4">
 					<a class="nav-link active" data-toggle="tab" href="#persInf">Personal Information</a>

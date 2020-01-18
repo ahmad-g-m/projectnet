@@ -5,7 +5,7 @@
 }
 .error{
   text-align: center;
-  color:red;
+  color:rgb(185, 39, 39);
 }
 #tableBackground{
   background-color: rgba(225, 246, 247, 0.89);
