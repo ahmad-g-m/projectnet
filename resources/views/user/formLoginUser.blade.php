@@ -32,7 +32,7 @@
 						<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 mb-2">
 							<input type="submit" name="btn" class="btn btn-primary btn-block" value="Sign In">
 						</div>
-						<!-- fault:
+						<!-- fault: incorrect input
 							<p class="error ml-5">incorrect information...</p>
 						-->
 					</div>
