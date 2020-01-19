@@ -33,7 +33,9 @@ class adminHomeController extends Controller
         }
         $user = User::all();
         $count = User::count();
-        return view('admin.admindashbord' , ['showuser' => 'show' , 'users' => $user , 'count' => $count]);
+        $idadmin = $r->session()->get('id');
+        // $user2 = User::find($idadmin);
+        return view('admin.admindashbord' , ['showuser' => 'show' , 'users' => $user , 'count' => $count , 'idadmin'=>$idadmin]);
     }
     public function deleteuser(Request $r , $id){
         if($r->session()->has('logadmin') == false){
