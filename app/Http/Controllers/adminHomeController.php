@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Schema;
 use App\User;
 use App\Cars;
 use App\Address;
+use App\Admins;
 use Illuminate\Support\Facades\Storage;
 use Symfony\Component\Console\Input\Input;
 
@@ -23,8 +24,30 @@ class adminHomeController extends Controller
         }
     }
     public function adminprofile(Request $r , $id){
-        // dd($id);
-        return view('profile.profileShow' , ['id'=>$id]);
+        if($r->session()->has('logadmin') == false){
+            // echo(" you login sir admin");
+            return redirect('loginadmin');
+        }
+        $adminsearch = Admins::find($id);
+        // $admin = $adminsearch->name;
+        // dd($admin);
+        return view('profile.profileShow' , ['id'=>$id , 'admin'=>$adminsearch , 'error'=>9 , 'active'=>'active']);
+    }
+    public function changepassword(Request $r , $id){
+        $admin = Admins::find($id);
+        $old = $admin->password;
+        if($old == $r->currentpass){
+            if($r->newpass == $r->repeatpass){
+                $admin->password = $r->newpass;
+                $admin->save();
+                $error = 0;
+            }else{
+                $error = 2;
+            }
+        }else{
+            $error = 1;
+        }
+        return view('profile.profileShow',['error'=>$error , 'admin'=>$admin , 'id'=>$id]);
     }
     public function showUsers(Request $r){
         if($r->session()->has('logadmin') == false){

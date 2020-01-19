@@ -21,7 +21,7 @@
         <?php
         if(isset($success)){
             ?>
-        <font style="color:green">success...</font>
+        <h1 style="color:green">success...</h1>
             <?php
         }
         ?>
