@@ -21,7 +21,7 @@
 				
 				<div class="mx-auto col-lg-5 col-md-7 col-sm-10 col-xs-12">
 				<form action="logineduser" method="post">
-                    {!!csrf_field()!!}
+                    {!!csrf_field()!!} 
 					<div class="form-row">
 						<div class="col-12 mb-2">
 							<input type="email" name="email" class="form-control" placeholder="Enter your email...">
