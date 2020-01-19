@@ -1,0 +1,12 @@
+.masterHeader{
+    background:url('../image/photo_2020-01-16_20-11-18.jpg') no-repeat center center;
+    padding-bottom: 18rem;
+    background-size: cover;
+  }
+  .error{
+    text-align: center;
+    color:rgb(185, 39, 39);
+  }
+  #tableBackground{
+    background-color: rgba(225, 246, 247, 0.89);
+  }
