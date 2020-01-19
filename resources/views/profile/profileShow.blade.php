@@ -3,17 +3,27 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="style.css" type="text/css">
-    <link rel="stylesheet" href="profile.js">
-	<link rel="stylesheet" href="bootstrap.min.css">
 	<title>Bootstrap 4 tutorial</title>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-	  
-	  
+	<?php 
+		use Illuminate\Support\Facades\Storage;
+		$path = 'photo_2020-01-16_20-11-18.jpg';
+		$conte1 = Storage::get($path);
+	?>
+	 <style>
+		 .masterHeader{
+			 background: url('https://raw.githubusercontent.com/ahmad-g-m/projectnet/master/resources/views/profile/photo_2020-01-16_20-11-18.jpg') no-repeat center center;
+		padding-bottom: 18rem;
+		background-size: cover;
+		}
+		#tableBackground{
+		background-color: rgba(225, 246, 247, 0.89);
+		}
+	 </style> 
 	  
 </head>
 <body>
@@ -120,7 +130,7 @@
 							<div class="col-lg-3 col-md-4 col-sm-5 col-xs-6">
 								<a  class="btn" href="#" >
 									<div class="card mb-1">
-										<img class="card-img-top" src="photo_2020-01-16_20-11-18.jpg" alt="Card image" style="width:100%">
+										<img class="card-img-top" src="data:image/jpeg;base64,{{ base64_encode($conte1)}}" alt="Card image" style="width:100%">
 										<div class="card-body-down">
 											<h6 class="text-dark text-center">salam</h6>
 										</div>
