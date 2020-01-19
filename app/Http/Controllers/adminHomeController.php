@@ -31,7 +31,8 @@ class adminHomeController extends Controller
         $adminsearch = Admins::find($id);
         // $admin = $adminsearch->name;
         // dd($admin);
-        return view('profile.profileShow' , ['id'=>$id , 'admin'=>$adminsearch , 'error'=>9 , 'active'=>'active']);
+        return view('profile.profileShow' , ['id'=>$id , 'admin'=>$adminsearch , 'error'=>9 , 'active1'=>'active',
+        'active2'=>'','active2_1'=>'active','active2_2'=>'','active3'=>'']);
     }
     public function changepassword(Request $r , $id){
         $admin = Admins::find($id);
@@ -47,7 +48,17 @@ class adminHomeController extends Controller
         }else{
             $error = 1;
         }
-        return view('profile.profileShow',['error'=>$error , 'admin'=>$admin , 'id'=>$id]);
+        return view('profile.profileShow',['error'=>$error , 'admin'=>$admin , 'id'=>$id ,'active1'=>'',
+        'active2'=>'active','active2_1'=>'active' ,'active2_2'=>'' , 'active3'=>'' ]);
+    }
+    public function changeinfo(Request $r,$id){
+        $admin = Admins::find($id);
+        $admin->name = $r->usernametxt;
+        $admin->email = $r->emailtxt;
+        $admin->age = $r->agetxt;
+        $admin->save();
+        return view('profile.profileShow',['error'=> 9 , 'admin'=>$admin , 'id'=>$id ,'active1'=>'',
+        'active2'=>'active','active2_1'=>'' ,'active2_2'=>'active' , 'active3'=>'' ]);
     }
     public function showUsers(Request $r){
         if($r->session()->has('logadmin') == false){

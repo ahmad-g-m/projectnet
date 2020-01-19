@@ -57,5 +57,6 @@ Route::match(['GET','POST'],'machines/sportscars/carpage/{id}' , 'carsHomeContro
 //search
 Route::get('search' , 'searchController@index');
 
-//change password
+//change password and info 
 Route::match(['GET','POST'], 'dashbordadmin/changepassword/{id}' , 'adminHomeController@changepassword')->name('changepassword');
+Route::match(['GET','POST'] , 'dashbordadmin/changeinfo/{id}' , 'adminHomeController@changeinfo')->name('changeinfo');

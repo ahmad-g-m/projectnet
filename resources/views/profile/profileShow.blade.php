@@ -35,20 +35,20 @@
 			<!-- Nav tabs -->
 			<ul class="nav nav-tabs" role="tablist" id="tableBackground">
 				<li class="nav-item col-4">
-					<a class="nav-link {{$active}}" data-toggle="tab" href="#persInf">Personal Information</a>
+					<a class="nav-link {{$active1}}" data-toggle="tab" href="#persInf">Personal Information</a>
 			  	</li>
 			  	<li class="nav-item col-4">
-					<a class="nav-link" data-toggle="tab" href="#edit">Edit Inofromaton</a>
+					<a class="nav-link {{$active2}}" data-toggle="tab" href="#edit">Edit Inofromaton</a>
 			  	</li>
 			  	<li class="nav-item col-4">
-					<a class="nav-link" data-toggle="tab" href="#intCar">Interested Cars</a>
+					<a class="nav-link {{$active3}}" data-toggle="tab" href="#intCar">Interested Cars</a>
 			  	</li>
 			</ul>
 		
 			<!-- Tab panes -->
 			
 			<div class="tab-content">
-			  	<div id="persInf" class="container tab-pane col-lg-8 col-xs-11 {{$active}}"><br><br><br><br>
+			  	<div id="persInf" class="container tab-pane col-lg-8 col-xs-11 {{$active1}}"><br><br><br><br>
 					<table class="table text-dark table-striped" id="tableBackground">
 						<thead>
 							<tr>
@@ -72,21 +72,21 @@
 						</tbody>
 					</table>
 			  	</div>
-			  	<div id="edit" class="container tab-pane col-12 fade">
+			  	<div id="edit" class="container tab-pane col-12 {{$active2}}">
 					
 					<!-- Nav tabs -->
 					<ul class="nav nav-tabs" role="tablist" id="tableBackground">
 						<li class="nav-item col-6">
-							<a class="nav-link  {{$active}}" data-toggle="tab" href="#e-password">Password</a>
+							<a class="nav-link {{$active2_1}}" data-toggle="tab" href="#e-password">Password</a>
 						</li>
 						<li class="nav-item col-6">
-							<a class="nav-link" data-toggle="tab" href="#e-information">Information</a>
+							<a class="nav-link {{$active2_2}}" data-toggle="tab" href="#e-information">Information</a>
 						</li>
 					</ul>
 
 					<!-- Tab panes -->
 					<div class="tab-content">
-						<div id="e-password" class="container tab-pane active"><br><br><br>
+						<div id="e-password" class="container tab-pane {{$active2_1}}"><br><br><br>
 							<form action="{{url('dashbordadmin/changepassword/'.$id)}}" method="post">
 							{!!csrf_field()!!}
 								<div class="mx-auto col-lg-5 col-md-7 col-sm-10 col-xs-12">
@@ -103,30 +103,37 @@
 										<button type="submit" name="changeBtn" class="btn btn-primary btn-block">Change password</button>
 									</div>
 									@if($error == 1)
-									<p style="text-align: center ; color: red">current password incorrectly</p>
+									<p style="text-align: center ; color: red;font-weight:bold;;font-size:large">current password incorrectly</p>
 									@elseif($error == 2)
-									<p style="text-align: center ; color: red">new password and its repetition do not match</p>
+									<p style="text-align: center ; color: red;font-weight:bold;;font-size:large">new password and its repetition do not match</p>
 									@elseif($error == 0)
-									<p style="text-align: center ; color: green">successfuly changed ... </p>
+									<p style="text-align: center ; color: green;font-weight:bold;;font-size:large">successfuly changed ... </p>
 									@endif
 								</div>		
 							</form>
 						</div>
-						<div id="e-information" class="container tab-pane fade"><br><br><br>
-							<form>
+						<div id="e-information" class="container tab-pane {{$active2_2}}"><br><br><br>
+							<form action="{{url('dashbordadmin/changeinfo/'.$id)}}" method="post">
+							{!!csrf_field()!!}
 								<div class="mx-auto col-lg-5 col-md-7 col-sm-10 col-xs-12">
 									<div class="mb-2">
-										<input type="username" class="form-control" placeholder="Change username...">
+										<label for="usernametxt" style="color: blue;font-size:large"> username </label>
+										<input type="username" name="usernametxt" id="usernametxt" class="form-control" value="{{$admin->name}}">
 									</div>
 									<div class="mb-2">
-										<input type="email" class="form-control" placeholder="Change email...">
+									<label for="emailtxt" style="color: blue;font-size:large"> email </label>
+										<input type="email" name="emailtxt" id="emailtxt" class="form-control" value="{{$admin->email}}">
 									</div>
 									<div class="mb-2">
-										<input type="input" class="form-control" placeholder="Change age...">
+									<label for="agetxt" style="color: blue;font-size:large"> age </label>
+										<input type="input" name="agetxt" id="agetxt" class="form-control" value="{{$admin->age}}">
 									</div>
 									<div class="col-12 mb-2">
-										<button type="button" name="button" class="btn btn-primary btn-block">Change</button>
+										<button type="submit" name="changebtn" class="btn btn-primary btn-block">Change</button>
 									</div>
+									@if($active2_2 == 'active')
+										<p style="text-align: center ; color: green ;font-weight:bold;;font-size:large">successfuly changed ... </p>
+									@endif
 								</div>		
 							</form>
 						</div>
