@@ -14,9 +14,8 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::match(['GET','POST'],'', 'HomeController@index' )->name('home1');
+Route::match(['GET','POST'],'/','HomeController@index' )->name('home2');
 
 Auth::routes();
 

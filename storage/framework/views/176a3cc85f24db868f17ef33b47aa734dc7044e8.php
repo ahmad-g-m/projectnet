@@ -10,7 +10,7 @@
 		use Illuminate\Support\Facades\Storage;
 		$path = 'photo_2020-01-16_20-11-18.jpg';//background
 		$conte1 = Storage::get($path);
-		// dd($id);
+		///////// dd($id);
 	?>
     <style>
         .masterHeader{
