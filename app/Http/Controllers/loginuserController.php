@@ -25,7 +25,7 @@ class loginuserController extends Controller
             $tick = 'user';
             return redirect()->route('showprofile',['id'=>$user->id , 'tick'=>$tick]);
         }else{
-            return redirect()->action('loginuserController@index');
+            return redirect()->route('loginuser');
         }
     }
 }
