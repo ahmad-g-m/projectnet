@@ -46,7 +46,7 @@
 			</ul>
 		
 			<!-- Tab panes -->
-			
+			<?php    //dd($admin->name);  ?>
 			<div class="tab-content">
 			  	<div id="persInf" class="container tab-pane col-lg-8 col-xs-11 {{$active1}}"><br><br><br><br>
 					<table class="table text-dark table-striped" id="tableBackground">
@@ -87,7 +87,7 @@
 					<!-- Tab panes -->
 					<div class="tab-content">
 						<div id="e-password" class="container tab-pane {{$active2_1}}"><br><br><br>
-							<form action="{{url('dashbordadmin/changepassword/'.$id)}}" method="post">
+							<form action="{{url('dashbord/changepassword/'.$id.'/'.$tick)}}" method="post">
 							{!!csrf_field()!!}
 								<div class="mx-auto col-lg-5 col-md-7 col-sm-10 col-xs-12">
 									<div class="mb-2">
@@ -113,7 +113,7 @@
 							</form>
 						</div>
 						<div id="e-information" class="container tab-pane {{$active2_2}}"><br><br><br>
-							<form action="{{url('dashbordadmin/changeinfo/'.$id)}}" method="post">
+							<form action="{{url('dashbord/changeinfo/'.$id.'/'.$tick)}}" method="post">
 							{!!csrf_field()!!}
 								<div class="mx-auto col-lg-5 col-md-7 col-sm-10 col-xs-12">
 									<div class="mb-2">

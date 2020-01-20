@@ -37,8 +37,9 @@
             <input type="text" name="txt1" id="txt1">
             <input type="submit" name="subbtn" id="subbtn" value="send"> -->
         <!-- </form> -->
-        <br>
-       <form action="http://127.0.0.1:8000/dashbordadmin/profile/<?php echo e($idadmin); ?>" method="get">   <!-- leave button -->
+        <br><?php echo e($tick = 'admin'); ?>
+
+       <form action="http://127.0.0.1:8000/dashbord/profile/<?php echo e($idadmin); ?>/<?php echo e($tick); ?>" method="get">   <!-- leave button -->
             <input type="submit" name="profileBtn" value="profile">
         </form>
         <hr>

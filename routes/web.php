@@ -28,7 +28,7 @@ Route::match(['GET','POST'],'saveregadmin' , 'registeradminController@saveReg');
 Route::match(['GET','POST'],'loginadmin' , 'loginadminController@index')->name('loginadmin');//login
 Route::match(['GET','POST'],'loginedadmin' , 'loginadminController@login');
 Route::match(['GET' , 'POST'],'dashbordadmin' , 'adminHomeController@index')->name('dashbordadmin');
-Route::match(['GET' , 'POST'],'dashbordadmin/profile/{id}' , 'adminHomeController@adminprofile')->name('adminprofile');
+Route::match(['GET' , 'POST'],'dashbord/profile/{id}/{tick}' , 'profileController@index')->name('showprofile');
 Route::match(['GET','POST'],'dashbordadmin/newpost/uploading' , 'adminHomeController@uploadFile')->name("uploadAdmin");
 Route::match(['GET','POST'],'dashbordadmin/showusers' , 'adminHomeController@showUsers')->name('showUsers');
 Route::match(['GET','POST'],'dashbordadmin/delete/{id}' , 'adminHomeController@deleteuser')->name('deleteuser');////////////////////////
@@ -41,7 +41,7 @@ Route::match(['GET','POST'] , 'dashbordadmin/editordeletepost/editPost/{id}' , '
 //users
 Route::match(['GET','POST'],'registeruser' , 'registeruserController@index');
 Route::match(['GET','POST'],'savereguser' , 'registeruserController@saveReg');
-Route::match(['GET','POST'],'loginuser' , 'loginuserController@index');//login
+Route::match(['GET','POST'],'loginuser' , 'loginuserController@index')->name('loginuser');//login
 Route::match(['GET','POST'],'logineduser' , 'loginuserController@login');
 Route::match(['GET','POST'],'dashborduser' , 'userHomeController@index');
 
@@ -58,5 +58,5 @@ Route::match(['GET','POST'],'machines/sportscars/carpage/{id}' , 'carsHomeContro
 Route::get('search' , 'searchController@index');
 
 //change password and info 
-Route::match(['GET','POST'], 'dashbordadmin/changepassword/{id}' , 'adminHomeController@changepassword')->name('changepassword');
-Route::match(['GET','POST'] , 'dashbordadmin/changeinfo/{id}' , 'adminHomeController@changeinfo')->name('changeinfo');
+Route::match(['GET','POST'], 'dashbord/changepassword/{id}/{tick}' , 'profileController@changepassword')->name('changepassword');
+Route::match(['GET','POST'] , 'dashbord/changeinfo/{id}/{tick}' , 'profileController@changeinfo')->name('changeinfo');

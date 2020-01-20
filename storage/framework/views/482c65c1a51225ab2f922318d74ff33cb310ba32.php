@@ -46,7 +46,7 @@
 			</ul>
 		
 			<!-- Tab panes -->
-			
+			<?php    //dd($admin->name);  ?>
 			<div class="tab-content">
 			  	<div id="persInf" class="container tab-pane col-lg-8 col-xs-11 <?php echo e($active1); ?>"><br><br><br><br>
 					<table class="table text-dark table-striped" id="tableBackground">
@@ -87,7 +87,7 @@
 					<!-- Tab panes -->
 					<div class="tab-content">
 						<div id="e-password" class="container tab-pane <?php echo e($active2_1); ?>"><br><br><br>
-							<form action="<?php echo e(url('dashbordadmin/changepassword/'.$id)); ?>" method="post">
+							<form action="<?php echo e(url('dashbord/changepassword/'.$id.'/'.$tick)); ?>" method="post">
 							<?php echo csrf_field(); ?>
 
 								<div class="mx-auto col-lg-5 col-md-7 col-sm-10 col-xs-12">
@@ -114,7 +114,7 @@
 							</form>
 						</div>
 						<div id="e-information" class="container tab-pane <?php echo e($active2_2); ?>"><br><br><br>
-							<form action="<?php echo e(url('dashbordadmin/changeinfo/'.$id)); ?>" method="post">
+							<form action="<?php echo e(url('dashbord/changeinfo/'.$id.'/'.$tick)); ?>" method="post">
 							<?php echo csrf_field(); ?>
 
 								<div class="mx-auto col-lg-5 col-md-7 col-sm-10 col-xs-12">

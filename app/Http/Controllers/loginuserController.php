@@ -19,7 +19,11 @@ class loginuserController extends Controller
         $email = $r->email;
 
         if(User::where([['email' , $email],['password' , $pass]])->first()){
-            return redirect('dashborduser');
+            $user = User::where([['email' , $email],['password' , $pass]])->first();
+            $r->session()->put('loguser',$user->name);
+            $r->session()->put('iduser',$user->id);
+            $tick = 'user';
+            return redirect()->route('showprofile',['id'=>$user->id , 'tick'=>$tick]);
         }else{
             return redirect()->action('loginuserController@index');
         }

@@ -37,8 +37,8 @@
             <input type="text" name="txt1" id="txt1">
             <input type="submit" name="subbtn" id="subbtn" value="send"> -->
         <!-- </form> -->
-        <br>
-       <form action="http://127.0.0.1:8000/dashbordadmin/profile/{{$idadmin}}" method="get">   <!-- leave button -->
+        <br>{{$tick = 'admin'}}
+       <form action="http://127.0.0.1:8000/dashbord/profile/{{$idadmin}}/{{$tick}}" method="get">   <!-- leave button -->
             <input type="submit" name="profileBtn" value="profile">
         </form>
         <hr>
