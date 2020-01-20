@@ -241,6 +241,7 @@ class adminHomeController extends Controller
             return redirect('loginadmin');
         }
         $edit_car_before = Cars::find($id);
+        $path = Address::where('mark' , $id)->get();
         if(isset($r->editPostBtn)){
             $edit_post = Cars::find($id);
             if(isset($r->brand)){
@@ -278,8 +279,15 @@ class adminHomeController extends Controller
             }
             $edit_post->save();
             $edited_post = Cars::find($id);
-            return view('admin.editPostAdmin' , ['success'=>'success','cars'=>$edited_post , 'id'=>$id]);
+            return view('admin.editPostAdmin' , ['path'=> $path ,'success'=>'success','cars'=>$edited_post , 'id'=>$id]);
         }
-        return view('admin.editPostAdmin' , ['cars'=>$edit_car_before , 'id'=>$id]);
+        return view('admin.editPostAdmin' , ['path'=> $path ,'cars'=>$edit_car_before , 'id'=>$id]);
+    }
+
+    public function deleteInEditPost(Request $r , $id){
+        if(Address::where('mark',$id)->first()){
+            $del = Address::where('mark',$id)->first()->delete();
+            return redirect()->route('editPost',['id'=>$id]);
+        }
     }
 }
