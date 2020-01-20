@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="bootstrap.min.css">
+    <title>Bootstrap 4 tutorial</title>
+    <style>
+        body {
+          font-family: "Lato", sans-serif;
+        }
+        
+        .sidenav {
+          height: 100%;
+          width: 0;
+          position: fixed;
+          z-index: 1;
+          top: 0;
+          left: 0;
+          background-color: rgba(17, 17, 17, 0.979);
+          overflow-x: hidden;
+          transition: 0.5s;
+          padding-top: 60px;
+          text-align:center;
+        }
+        
+        .sidenav a {
+          padding: 8px 8px 8px 32px;
+          text-decoration: none;
+          font-size: 25px;
+          color: #faf0f0f1;
+          display: block;
+          transition: 0.3s;
+        
+        }
+        
+        .sidenav a:hover{
+          color: #e02d2d;
+        }
+        
+        .sidenav .closebtn {
+          position: absolute;
+          top: 0;
+          right: 25px;
+          font-size: 36px;
+          margin-left: 50px;
+        }
+        .sideMenuStyle{
+            font-size:30px;
+            cursor:pointer;
+            background-color:#353434c5;
+        }
+        
+        @media screen and (max-height: 450px) {
+          .sidenav {padding-top: 15px;}
+          .sidenav a {font-size: 18px;}
+        }
+        </style>
+</head>
+<body>
+	<header class="masterHeader text-center text-white">
+    <span class="sideMenuStyle navbar navbar-expand-sm fixed-bottom" style="height:2.5rem;" id="#nav" onclick="openNav()">&#9776; open dash board</span>
+    <div id="mySidenav" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <a href="#">profile</a>
+      <a href="#">add new post</a>
+      <a href="#">show users</a>
+      <a href="#">edit or delet posts</a>
+    </div>
+    <script>
+      function openNav() {
+        document.getElementById("mySidenav").style.width = "100%";
+      }    
+      function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+      }
+    </script>
+    <br>
+    <h4 class="text-dark">+new post</h4>
+              
+    <br/>
+    <form>
+      <div class="container">
+        <div class="row">  
+          <div class="col-lg-6 col-sm-12 col-xs-12">
+            <div class="mx-auto col-lg-8 col-md-10 col-sm-11 col-xs-12">
+              <div class="form-row">
+                <div class="input-group col-12 mb-2">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">brand</span>
+                  </div>
+                  <input type="text" class="form-control" name="brand">
+                </div>
+                <div class="input-group col-12 mb-2">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">name</span>
+                  </div>
+                    <input type="text" class="form-control" name="name">
+                </div>
+                <div class="input-group col-12 mb-2">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">model</span>
+                  </div>
+                  <input type="text" class="form-control" name="model">
+                </div>
+                <div class="input-group col-12 mb-2">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">year</span>
+                  </div>
+                  <input type="text" class="form-control" name="year">
+                </div>
+                <div class="input-group col-12 mb-2">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">price</span>
+                  </div>
+                  <input type="text" class="form-control" name="price">
+                  <div class="input-group-append">
+                    <span class="input-group-text">$</span>
+                  </div>
+                </div>
+                <div class="input-group col-12 mb-2">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">time 0 to 100</span>
+                  </div>
+                  <input type="text" class="form-control" name="time-0-to-100">
+                </div>
+                <div class="input-group col-12 mb-2">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">transmission</span>
+                  </div>
+                  <input type="text" class="form-control" name="transmission">
+                </div>
+                <div class="input-group col-12 mb-2">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">fuel type</span>
+                  </div>
+                  <input type="text" class="form-control" name="fuel-type">
+                </div>
+                <div class="input-group col-12 mb-2">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">engine power</span>
+                  </div>
+                  <input type="text" class="form-control" name="engine-power">
+                </div>
+                <div class="input-group col-12 mb-2">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">cylander number</span>
+                  </div>
+                  <input type="text" class="form-control" name="cylander-number">
+                </div>          
+                  <!-- fault:
+                    <p class="error ml-5">incorrect information</p>
+                  -->
+              </div>  
+            </div>
+          </div>
+          <div class="col-lg-6 col-sm-12 col-xs-12">
+            <div class="mx-auto col-lg-9 col-md-10 col-sm-11 col-xs-12">
+              <select name="cars" class="custom-select mb-3">
+                <option selected>Sedon</option>
+                <option value="volvo">Sport</option>
+                <option value="fiat">Classic</option>
+              </select>        
+              <div class="form-group">
+                <textarea class="form-control" rows="5" id="comment" name="text" placeholder="more details..."></textarea>
+              </div>
+              <div class="custom-file mb-3">
+                <input type="file" class="custom-file-input" id="fileField" name="filename" multiple>
+                <label class="custom-file-label" for="customFile">Choose file</label>  
+              </div>
+              <div class="btn-group mb-3">
+                <button type="button" class="btn btn-primary btn-success">Create</button>
+                <button type="button" class="btn btn-primary btn-danger">Cancel</button>
+              </div>          
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+	</header>
+</body>
+</html>
