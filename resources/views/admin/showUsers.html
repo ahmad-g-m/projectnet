@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	<title>Bootstrap 4 tutorial</title>
+	<style>
+        body {
+          font-family: "Lato", sans-serif;
+        }
+        
+        .sidenav {
+          height: 100%;
+          width: 0;
+          position: fixed;
+          z-index: 1;
+          top: 0;
+          left: 0;
+          background-color: rgba(17, 17, 17, 0.979);
+          overflow-x: hidden;
+          transition: 0.5s;
+          padding-top: 60px;
+          text-align:center;
+        }
+        
+        .sidenav a {
+          padding: 8px 8px 8px 32px;
+          text-decoration: none;
+          font-size: 25px;
+          color: #faf0f0f1;
+          display: block;
+          transition: 0.3s;
+        
+        }
+        
+        .sidenav a:hover{
+          color: #e02d2d;
+        }
+        
+        .sidenav .closebtn {
+          position: absolute;
+          top: 0;
+          right: 25px;
+          font-size: 36px;
+          margin-left: 50px;
+        }
+        .sideMenuStyle{
+            font-size:30px;
+            cursor:pointer;
+            background-color:#353434c5;
+        }
+        
+        @media screen and (max-height: 450px) {
+          .sidenav {padding-top: 15px;}
+          .sidenav a {font-size: 18px;}
+        }
+    </style>
+</head>
+<body>
+	<header class="masterHeader">
+
+		<!---->
+		<span class="sideMenuStyle navbar navbar-expand-sm fixed-bottom text-light" style="height:2.5rem;" id="#nav" onclick="openNav()">&#9776; open dash board</span>
+		<div id="mySidenav" class="sidenav">
+		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+		<a href="#">profile</a>
+		<a href="#">add new post</a>
+		<a href="#">show users</a>
+		<a href="#">edit or delet posts</a>
+		</div>
+		<script>
+		function openNav() {
+			document.getElementById("mySidenav").style.width = "100%";
+		}    
+		function closeNav() {
+			document.getElementById("mySidenav").style.width = "0";
+		}
+		</script>
+		<!---->
+
+		<div class="mx-auto col-12">
+			<br/>
+			<p class="text-center">
+			<span class="badge badge-dark badge-pill"><strong>- number of users -<br><br>123131311313</strong></span>
+			</p>
+			<br/>
+			<br>
+			<div class="container">
+				<div id="accordion">
+
+					<!--baraye har user bayad yek bar in code ejra shavad-->
+					<div class="card">	
+						<a class="card-header card-link btn btn-outline-secondary text-left" data-toggle="collapse" href="#username">
+							<span class="badge badge-info badge-pill">12</span>@ username
+						</a>
+						<!--id <= username-->
+						<div id="username" class="collapse" data-parent="#accordion">
+							<div class="card-body container">
+							<div class="row">
+								<p class="col-lg-5 col-md-8 col-sm-12 col-xs-12 "><strong>email: </strong>mehdikhorsand@gmail.com</p>
+								<p class="col-lg-4 col-md-5 col-sm-6 col-xs-6 "><strong>username: </strong>mehdikhorsand</p>
+								<p class="col-lg-3 col-md-4 col-sm-6 col-xs-6 "><strong>password: </strong>mehdikh77</p>
+								<p class="col-lg-3 col-md-4 col-sm-6 col-xs-6 "><strong>age: </strong>21</p>
+								<a type="button" name="button" class="btn btn-block btn-outline-danger text-secondary col-lg-3 col-md-4 col-sm-5 col-xs-6">Delete</a>
+							</div>
+							</div>
+						</div>
+					</div>
+					<!---->
+
+				</div>
+			</div>				
+		</div>
+	</header>
+</body>
+</html>
