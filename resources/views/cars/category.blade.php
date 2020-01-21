@@ -53,7 +53,7 @@
             <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
                 <ul class="navbar-nav  mt-2 mt-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="http://127.0.0.1:8000/">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">About</a>
@@ -151,9 +151,18 @@
                                                         $brand = $car->brand;
                                                         $name = $car->name;
                                                         $model = $car->model;
+                                                        if($car->mark == 1){
+                                                            $type = 'sedanscars';
+                                                        }
+                                                        if($car->mark == 2){
+                                                            $type = 'classicscar';
+                                                        }
+                                                        if($car->mark == 3){
+                                                            $type = 'sportscars';
+                                                        }
                                 ?>
                                                         <div class="col-sm-6 border bg-dark mb-2  postbox-left">
-                                                            <a href="{{url('machines/sedanscars/carpage/'.$id)}}"><img class="rounded post-img" style="max-height: 200px;" src="data:image/jpeg;base64,{{ base64_encode($conte)}}" width="100%" height="200px" ></a>
+                                                            <a href="{{url('machines/'.$type.'/carpage/'.$id)}}"><img class="rounded post-img" style="max-height: 200px;" src="data:image/jpeg;base64,{{ base64_encode($conte)}}" width="100%" height="200px" ></a>
                                                             <p class="post-text">{{$brand .' '. $name . ' ' . $model}}</p>
                                                         </div>
 
@@ -187,7 +196,7 @@
             <div class="col-sm-1"></div>
             <div class="col-sm-7">
                 <ul>
-                    <li><a class="footerlink" href="#">home</a> </li>
+                    <li><a class="footerlink" href="http://127.0.0.1:8000/">home</a> </li>
                     <li><a class="footerlink" href="#">about us</a> </li>
                     <li><a class="footerlink" href="#">contact</a> </li>
                     <li><a class="footerlink" href="#">others</a> </li>

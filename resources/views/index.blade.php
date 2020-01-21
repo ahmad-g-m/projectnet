@@ -54,7 +54,7 @@
             <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
                 <ul class="navbar-nav  mt-2 mt-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="http://127.0.0.1:8000/">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">About</a>
@@ -213,7 +213,7 @@
                 <div class="col-sm-1"></div>
                 <div class="col-sm-7">
                     <ul>
-                        <li><a class="footerlink" href="#">home</a> </li>
+                        <li><a class="footerlink" href="http://127.0.0.1:8000/">home</a> </li>
                         <li><a class="footerlink" href="#">about us</a> </li>
                         <li><a class="footerlink" href="#">contact</a> </li>
                         <li><a class="footerlink" href="#">others</a> </li>
