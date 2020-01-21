@@ -9,18 +9,22 @@ class registeradminController extends Controller
 {
     public function index(){
 
-        return view('admin.formRegAdmin');
+        return view('admin.signUp' , ['person'=>'admin']);
     }
 
     public function saveReg(Request $r){
-        $admins = new Admins;
-        $admins->name = $r->name;
-        $admins->age = $r->age;
-        $admins->email = $r->email;
-        $admins->password = $r->password;
-        $admins->save();
+        if($r->reppassword == $r->password){
+            $admins = new Admins;
+            $admins->name = $r->name;
+            $admins->age = $r->age;
+            $admins->email = $r->email;
+            $admins->password = $r->password;
+            $admins->save();
 
         return redirect()->action('registeradminController@index');
+        }else{
+            return view('admin.signUp',['error'=>1]);
+        }
 
     }
 }

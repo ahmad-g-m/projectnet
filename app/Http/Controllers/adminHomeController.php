@@ -69,7 +69,7 @@ class adminHomeController extends Controller
         $count = User::count();
         $idadmin = $r->session()->get('id');
         // $user2 = User::find($idadmin);
-        return view('admin.admindashbord' , ['showuser' => 'show' , 'users' => $user , 'count' => $count , 'idadmin'=>$idadmin]);
+        return view('admin.showUsers' , ['users' => $user , 'count' => $count , 'idadmin'=>$idadmin]);
     }
     public function deleteuser(Request $r , $id){
         if($r->session()->has('logadmin') == false){
@@ -82,7 +82,10 @@ class adminHomeController extends Controller
         //     $finds->delete();
         // }
         User::find($id)->delete();
-        return redirect()->route('showUsers');
+        $idadmin = $r->session()->get('id');
+        $count = User::count();
+        $user = User::all();
+        return view('admin.showUsers' , ['users' => $user , 'count' => $count,'idadmin'=>$idadmin]);
     }
     public function edituser(Request $r , $id){
         if($r->session()->has('logadmin') == false){
@@ -116,7 +119,8 @@ class adminHomeController extends Controller
             // echo(" you login sir admin");
             return redirect('loginadmin');
         }
-        return view('admin.newPostAdmin');
+        $idadmin = $r->session()->get('id');
+        return view('admin.admindashbord' , ['idadmin'=>$idadmin]);
     }
     public function uploadFile(Request $r){
         if($r->session()->has('logadmin') == false){
@@ -163,6 +167,9 @@ class adminHomeController extends Controller
         if(isset($r->moredetail)){
             $cars->moredetail = $r->moredetail;
         }
+        if(isset($r->cars)){
+            $cars->mark = $r->cars;
+        }
         $cars->save();
         echo("<br>");
         // echo($originalName."<br>");
@@ -191,13 +198,13 @@ class adminHomeController extends Controller
             // $originalName = $r->file('upFileFromAdmin')->getClientOriginalName();
             $encName = pathinfo($path)['basename'];
             // echo($contents."<br>");
-            echo($path."<br>");
+            // echo($path."<br>");
         }
 
         }//end if upFileFromAdmin
         $test = Address::where('mark' , $max_id)->get();
         // $content2 = Storage::get($test->address);
-        return view('admin.newPostAdmin' , ['contents' => $test , 'max_id'=> $max_id]);
+        return view('admin.admindashbord' , ['contents' => $test , 'max_id'=> $max_id]);
     }
 
     public function editOrDeletepost(Request $r){
@@ -236,6 +243,7 @@ class adminHomeController extends Controller
         return redirect()->route('editdeletepost',['editOrDeletePostCarsBtn'=>'cars']);
     }
     public function editPost(Request $r , $id){
+        
         if($r->session()->has('logadmin') == false){
             // echo(" you login sir admin");
             return redirect('loginadmin');

@@ -22,7 +22,7 @@ Auth::routes();
 Route::get('home' , 'homeController@index');
 Route::get('hi' , 'homeController@hi');
 //admin
-Route::match(['GET','POST'],'registeradmin' , 'registeradminController@index');
+Route::match(['GET','POST'],'registeradmin' , 'registeradminController@index')->name('regadmin');
 Route::match(['GET','POST'],'saveregadmin' , 'registeradminController@saveReg');
 Route::match(['GET','POST'],'loginadmin' , 'loginadminController@index')->name('loginadmin');//login
 Route::match(['GET','POST'],'loginedadmin' , 'loginadminController@login');
