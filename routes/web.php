@@ -14,33 +14,49 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::match(['GET','POST'],'', 'HomeController@index' )->name('home1');
+Route::match(['GET','POST'],'/','HomeController@index' )->name('home2');
 
 Auth::routes();
 
 Route::get('home' , 'homeController@index');
 Route::get('hi' , 'homeController@hi');
 //admin
-Route::get('registeradmin' , 'registeradminController@index');
-Route::post('saveregadmin' , 'registeradminController@saveReg');
-Route::get('loginadmin' , 'loginadminController@index')->name('loginadmin');//login
-Route::post('loginedadmin' , 'loginadminController@login');
-Route::get('dashbordadmin' , 'adminHomeController@index')->name("dashbordAdmin");
-Route::post('dashbordadmin/showusers' , 'adminHomeController@showUsers')->name('showUsers');
-Route::get('dashbordadmin/delete{id}' , 'adminHomeController@deleteuser');////////////////////////
-Route::get('dashbordadmin/edit{id}' , 'adminHomeController@edituser');/////////////////////////
-Route::get('dashbordadmin/newpost' , 'adminHomeController@newpost')->name('newpost');
+Route::match(['GET','POST'],'registeradmin' , 'registeradminController@index');
+Route::match(['GET','POST'],'saveregadmin' , 'registeradminController@saveReg');
+Route::match(['GET','POST'],'loginadmin' , 'loginadminController@index')->name('loginadmin');//login
+Route::match(['GET','POST'],'loginedadmin' , 'loginadminController@login');
+Route::match(['GET' , 'POST'],'dashbordadmin' , 'adminHomeController@index')->name('dashbordadmin');
+Route::match(['GET' , 'POST'],'dashbord/profile/{id}/{tick}' , 'profileController@index')->name('showprofile');
+Route::match(['GET','POST'],'dashbordadmin/newpost/uploading' , 'adminHomeController@uploadFile')->name("uploadAdmin");
+Route::match(['GET','POST'],'dashbordadmin/showusers' , 'adminHomeController@showUsers')->name('showUsers');
+Route::match(['GET','POST'],'dashbordadmin/delete/{id}' , 'adminHomeController@deleteuser')->name('deleteuser');////////////////////////
+Route::match(['GET','POST'],'dashbordadmin/edit/{id}' , 'adminHomeController@edituser')->name('edituser');/////////////////////////
+Route::match(['GET','POST'],'dashbordadmin/edit/updating' , 'adminHomeController@editCheck')->name('editUpdating');
+Route::match(['GET','POST'],'dashbordadmin/newpost' , 'adminHomeController@newpost')->name('newpost');
+Route::match(['GET','POST'],'dashbordadmin/editordeletepost' , 'adminHomeController@editOrDeletepost')->name('editdeletepost');
+Route::match(['GET','POST'] , 'dashbordadmin/editordeletepost/delete/{id}' , 'adminHomeController@deletePost')->name('deletePost');
+Route::match(['GET','POST'] , 'dashbordadmin/editordeletepost/editPost/{id}' , 'adminHomeController@editPost')->name('editPost');
+Route::match(['GET','POST'] , 'dashbordadmin/editordeletepost/editPost/{id}/delete/{id2}' , 'adminHomeController@deleteInEditPost')->name('deleteInEditPost');
 //users
-Route::get('registeruser' , 'registeruserController@index');
-Route::post('savereguser' , 'registeruserController@saveReg');
-Route::get('loginuser' , 'loginuserController@index');//login
-Route::post('logineduser' , 'loginuserController@login');
-Route::get('dashborduser' , 'userHomeController@index');
+Route::match(['GET','POST'],'registeruser' , 'registeruserController@index');
+Route::match(['GET','POST'],'savereguser' , 'registeruserController@saveReg');
+Route::match(['GET','POST'],'loginuser' , 'loginuserController@index')->name('loginuser');//login
+Route::match(['GET','POST'],'logineduser' , 'loginuserController@login');
+Route::match(['GET','POST'],'dashborduser' , 'userHomeController@index');
 
 //cars
-Route::get('machines' , 'carsHomeController@index');
-Route::get('machines/cars' , 'carsHomeController@indexc');
-Route::get('machines/heavycars' , 'carsHomeController@indexh');
-Route::get('machines/motorcycle' , 'carsHomeController@indexm');
+Route::match(['GET','POST'],'machines' , 'carsHomeController@index');
+Route::match(['GET','POST'],'machines/sedanscars' , 'carsHomeController@indexSedanCars');//sedan car
+Route::match(['GET','POST'],'machines/sedanscars/carpage/{id}' , 'carsHomeController@showPageCars');
+Route::match(['GET','POST'],'machines/classicscars' , 'carsHomeController@indexClassicsCars');//classic car
+Route::match(['GET','POST'],'machines/classicscar/carpage/{id}' , 'carsHomeController@showPageCars');
+Route::match(['GET','POST'],'machines/sportscars' , 'carsHomeController@indexSportsCars');//sport car
+Route::match(['GET','POST'],'machines/sportscars/carpage/{id}' , 'carsHomeController@showPageCars');
+
+//search
+Route::get('search' , 'searchController@index');
+
+//change password and info 
+Route::match(['GET','POST'], 'dashbord/changepassword/{id}/{tick}' , 'profileController@changepassword')->name('changepassword');
+Route::match(['GET','POST'] , 'dashbord/changeinfo/{id}/{tick}' , 'profileController@changeinfo')->name('changeinfo');

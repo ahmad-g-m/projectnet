@@ -1,0 +1,100 @@
+.undernav{
+    height: 10px;
+}
+body{
+    direction: ltr;
+
+}
+.a{
+    padding-left: 0 ;
+    padding-right: 0 ;
+}
+.m-p{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+a.carousel-control-prev, a.carousel-control-next {
+    width: 7%;
+}
+.footerlink,.footerlink:hover
+{
+    color: white;
+    text-decoration: none;
+}
+img {
+    max-width: 100%;
+    height: auto;
+}
+.slideshowpic{
+    height: 300px;
+    width: 100%;
+}
+.title{
+    color:white;
+}
+.banner{
+    width: 49%;
+}
+.col-left-box-title{
+    height: 50px ;
+    width: 100%
+}
+.col-left-box-title-name{
+    text-align: center;
+    color: white;
+    padding-top: 13px;
+}
+.col-left-box,.post-box{
+    height: auto ;
+    width: 100%;
+
+}
+.col-left-list{
+    list-style-type:none;
+    padding-top:13px;
+    padding-bottom: 13px
+}
+.postbox-right{
+    float:right;
+    height: auto;
+    padding-bottom: 10px;
+}
+}
+.postbox-left{
+    float:left;
+    height: auto;
+    padding-bottom: 10px;
+}
+.post-img{
+    align-content: center;
+    margin-top: 10px;
+    border: solid 1px deepskyblue;
+}
+.post-text{
+    align-content: center;
+    color: white;
+}
+.box-link{
+    text-decoration: none;
+    color: black;
+}
+.box-link:hover{
+    text-decoration: none;
+    color: blue;
+}
+.post-page-img{
+    height: 150px;
+    width: 100%;
+    float: right;
+    margin-top: 10px;
+    color: black;
+    margin-bottom: 20px;
+    float: center;
+
+}
+.summery{
+    float: left;
+}
+.table-style{
+    text-align: center;
+}
